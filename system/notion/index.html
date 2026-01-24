@@ -1,0 +1,84 @@
+import React from 'react';
+import { MessageSquare, Download, Database, ShieldCheck, ChevronRight, Zap } from 'lucide-react';
+
+const App = () => {
+  const BRAND_LOGO = "https://atom-bunny-8f6.notion.site/image/attachment%3A3a5ee000-88a9-42c5-842f-34619d1099fc%3ABEETLE_LOGO.jpg?table=block&id=2df51f87-ec7c-80fe-a0ef-f3054ac7e61e&spaceId=c7751f87-ec7c-818c-8570-00032fe627bd&width=1420&userId=&cache=v2";
+  const LINE_URL = "https://lin.ee/yOgVoXD";
+
+  return (
+    <div className="min-h-screen bg-[#050505] text-gray-200 font-sans flex flex-col items-center justify-center p-6 selection:bg-yellow-600 selection:text-black font-black italic">
+      
+      {/* 玻璃感容器 */}
+      <div className="max-w-md w-full bg-zinc-900/80 border border-yellow-600/20 rounded-[3rem] p-8 md:p-12 shadow-[0_0_80px_rgba(202,138,4,0.1)] relative overflow-hidden backdrop-blur-xl">
+        
+        {/* 背景裝飾 */}
+        <div className="absolute -top-20 -right-20 w-64 h-64 bg-yellow-600/5 rounded-full blur-3xl"></div>
+        
+        {/* Logo 區域 */}
+        <header className="text-center mb-12 relative z-10">
+          <img src={BRAND_LOGO} className="w-24 h-24 rounded-full border-4 border-yellow-600 mx-auto mb-6 shadow-2xl object-cover" alt="Bona Logo" />
+          <h1 className="text-3xl font-black italic tracking-tighter uppercase text-white leading-none">
+            Bona <span className="text-yellow-500">Systems</span>
+          </h1>
+          <p className="text-[10px] font-bold tracking-[0.4em] text-zinc-500 uppercase mt-2">Digital Handout Portal</p>
+        </header>
+
+        {/* 贈品內容描述 */}
+        <div className="space-y-6 mb-12 relative z-10">
+          <div className="bg-black/40 border border-white/5 rounded-2xl p-6 transition-all hover:border-yellow-600/30">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-yellow-600 p-2 rounded-xl">
+                <Download className="text-black" size={20} />
+              </div>
+              <h3 className="text-lg font-black text-white italic uppercase tracking-wider">限時免費領取</h3>
+            </div>
+            <p className="text-sm font-bold text-zinc-400 mb-4 leading-relaxed not-italic">
+              Bona ARCHIVE 數位身分紀錄模板。包含：智慧編碼引擎、天數成長對標、雲端歷史履歷。
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="bg-zinc-800 text-zinc-500 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border border-white/5">Notion Template</span>
+              <span className="bg-zinc-800 text-zinc-500 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border border-white/5">Digital DNA</span>
+            </div>
+          </div>
+        </div>
+
+        {/* LINE 引流按鈕 */}
+        <div className="space-y-4 relative z-10">
+          <a 
+            href={LINE_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-full bg-[#06C755] hover:bg-[#05b14c] text-white font-black py-6 rounded-2xl flex items-center justify-center gap-4 shadow-xl shadow-green-900/20 transition-all active:scale-95 group no-underline"
+          >
+            <MessageSquare size={24} fill="white" />
+            <div className="text-left">
+              <p className="text-[10px] font-bold uppercase tracking-widest leading-none mb-1 opacity-80">Step 1: Join LINE</p>
+              <p className="text-sm font-black uppercase tracking-widest leading-none">加入官方 LINE</p>
+            </div>
+            <ChevronRight className="ml-auto group-hover:translate-x-1 transition-transform" />
+          </a>
+          
+          <div className="p-4 text-center">
+            <p className="text-xs font-bold text-zinc-500 mb-3 italic not-italic">Step 2: 在對話框輸入關鍵字</p>
+            <div className="inline-block bg-yellow-600/10 border border-yellow-600/30 px-10 py-3 rounded-xl">
+               <span className="text-xl font-black text-yellow-500 tracking-[0.2em]">領取模板</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 品牌結語 */}
+        <footer className="mt-12 pt-8 border-t border-zinc-800/50 flex justify-between items-center opacity-30">
+          <div className="flex items-center gap-2">
+            <ShieldCheck size={14} />
+            <span className="text-[9px] font-black uppercase tracking-widest">Bona Verified Data</span>
+          </div>
+          <Zap size={14} className="text-yellow-600" />
+        </footer>
+      </div>
+
+      <p className="mt-10 text-[10px] text-zinc-700 font-bold uppercase tracking-[0.5em] italic">Bona Beetle Systems © 2026</p>
+    </div>
+  );
+};
+
+export default App;
