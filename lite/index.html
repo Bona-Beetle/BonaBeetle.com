@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BONA LITE | 數位蟲室系統</title>
+    <meta name="description" content="別讓你的蟲養著養著就忘了。BONA BEETLE，專為甲蟲玩家打造的數據資產管理系統。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bona: {
+                            black: '#0f0f0f',
+                            dark: '#1a1a1a',
+                            card: '#262626',
+                            gold: '#d4af37',
+                            lightGold: '#fceda8',
+                            text: '#e5e5e5',
+                            muted: '#a3a3a3'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Arial', 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0f0f0f; color: #e5e5e5; }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #a68a2e 100%); }
+        .glass-card { background: rgba(38, 38, 38, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .feature-icon { background: rgba(212, 175, 55, 0.1); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #d4af37; margin-bottom: 12px; }
+        .best-value-ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #d4af37; color: black; font-size: 0.75rem; font-weight: bold; padding: 4px 16px; border-radius: 20px; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); z-index: 20; border: 2px solid #0f0f0f; }
+        .check-item { display: flex; align-items: start; gap: 10px; margin-bottom: 8px; font-size: 0.9rem; color: #d1d5db; }
+        .check-icon { color: #d4af37; margin-top: 4px; flex-shrink: 0; }
+        
+        /* Sticky CTA for Mobile */
+        .sticky-cta {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #333;
+            padding: 16px; z-index: 100;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+        }
+        .sticky-cta.visible { transform: translateY(0); }
+    </style>
+</head>
+<body class="pb-32">
+
+    <!-- HERO SECTION -->
+    <div class="relative w-full overflow-hidden mb-10 pt-16 pb-8 px-6 text-center">
+        <div class="absolute top-[-10%] left-1/2 transform -translate-x-1/2 w-[120%] h-[60%] bg-bona-gold/10 blur-[80px] rounded-full pointer-events-none"></div>
+        <div class="relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-bona-gold/20 text-bona-gold text-xs font-bold tracking-widest mb-4 border border-bona-gold/30">SYSTEM ONLINE</span>
+            <h1 class="text-4xl font-black text-white leading-tight mb-4 tracking-wide">
+                你的蟲，值得<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-bona-lightGold to-bona-gold">一張身分證</span>
+            </h1>
+            <p class="text-bona-muted text-sm leading-relaxed max-w-xs mx-auto">
+                告別手寫標籤與 Excel。<br>用手機掃描，一秒喚醒蟲室的數位資產。
+            </p>
+        </div>
+    </div>
+
+    <!-- PAIN POINTS -->
+    <div class="px-6 mb-12">
+        <div class="glass-card rounded-2xl p-6 border-l-4 border-l-red-500">
+            <h3 class="text-lg font-bold text-white mb-4">你也遇過這些問題嗎？</h3>
+            <div class="space-y-4">
+                <div class="flex items-start"><i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i><p class="text-sm text-gray-400">想知道這隻幼蟲的父母是誰，卻找不到去年的紀錄紙？</p></div>
+                <div class="flex items-start"><i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i><p class="text-sm text-gray-400">養了幾十隻，忘記哪一瓶該換土，結果縮水或化蛹失敗？</p></div>
+                <div class="flex items-start"><i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i><p class="text-sm text-gray-400">賣蟲的時候，拿不出有說服力的血統證明，價格上不去？</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOLUTION SHOWCASE -->
+    <div class="px-6 mb-16">
+        <div class="text-center mb-8"><h2 class="text-2xl font-bold text-white mb-2">BONA SYSTEM</h2><p class="text-xs text-bona-gold uppercase tracking-[0.2em]">The Digital Breeding Solution</p></div>
+        <div class="grid gap-4">
+            <div class="bg-bona-card p-5 rounded-xl border border-gray-800"><div class="feature-icon"><i class="fa-solid fa-qrcode text-2xl"></i></div><h3 class="font-bold text-white mb-1">QR Code 掃描錄入</h3><p class="text-xs text-gray-500">貼上標籤，手機一掃，歷次體重、血統、換瓶日瞬間顯示。</p></div>
+            <div class="bg-bona-card p-5 rounded-xl border border-gray-800"><div class="feature-icon"><i class="fa-solid fa-chart-line text-2xl"></i></div><h3 class="font-bold text-white mb-1">可視化生長曲線</h3><p class="text-xs text-gray-500">不再憑感覺養蟲。數據化呈現生長趨勢，優劣一目瞭然。</p></div>
+            <div class="bg-bona-card p-5 rounded-xl border border-gray-800"><div class="feature-icon"><i class="fa-solid fa-database text-2xl"></i></div><h3 class="font-bold text-white mb-1">雲端資產庫</h3><p class="text-xs text-gray-500">資料安全存在您自己的 Notion。即使手機遺失，數據永遠都在。</p></div>
+        </div>
+    </div>
+
+    <!-- PRICING SECTION -->
+    <div id="pricing" class="px-4 space-y-6 max-w-md mx-auto relative">
+        <div class="text-center mb-6">
+            <h2 class="text-2xl font-bold text-white">選擇適合您的方案</h2>
+            <div class="inline-block mt-2 bg-gray-800 rounded-full px-4 py-1 border border-gray-700">
+                <p class="text-[10px] text-gray-400">原價 <span class="line-through">$150/月</span> + 設定費 <span class="line-through">$450</span></p>
+            </div>
+        </div>
+
+        <!-- NEW PLAN: STANDARD MONTHLY -->
+        <div class="glass-card rounded-2xl p-6 relative border border-gray-700 hover:border-gray-500 transition-colors">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <span class="bg-gray-800 text-gray-300 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">彈性首選</span>
+                    <h3 class="text-xl font-bold text-white mt-1">標準月繳</h3>
+                </div>
+                <div class="text-right">
+                    <div class="text-2xl font-bold text-white">$120 <span class="text-xs text-gray-500 font-normal">/月</span></div>
+                    <div class="text-[10px] text-gray-400 line-through">原價 $150</div>
+                </div>
+            </div>
+
+            <div class="flex items-baseline space-x-2 mb-4 pb-4 border-b border-gray-700">
+                <div class="text-3xl font-bold text-white">50</div>
+                <div class="text-xs text-gray-400">隻個體上限</div>
+                <div class="ml-auto text-xs text-bona-gold border border-bona-gold/30 px-2 py-1 rounded">8折優惠</div>
+            </div>
+
+            <ul class="space-y-3 mb-6">
+                <li class="flex items-center text-sm text-gray-300"><i class="fa-solid fa-info-circle text-gray-500 mr-3 text-xs"></i> <span>需收 <strong class="text-white">$450</strong> 設定費</span></li>
+                <li class="flex items-center text-sm text-gray-300"><i class="fa-solid fa-check text-bona-gold mr-3 text-xs"></i> <span>輕鬆入門，無綁約壓力</span></li>
+                <li class="flex items-center text-sm text-gray-300"><i class="fa-solid fa-plus text-bona-gold mr-3 text-xs"></i> <span>支援加購「彈性擴充包」</span></li>
+            </ul>
+            <div class="text-center mb-3">
+                <p class="text-[10px] text-bona-muted">👇 想省 $450 設定費？參考下方方案 👇</p>
+            </div>
+            <a href="https://ganknow.com/services/81347-bonabeetle-bona-system-lite-zhong-zi-shi-yong-yue-jiao-qi-yong-she-ding" class="block w-full border border-gray-600 text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors text-center text-sm tracking-widest uppercase">
+                立即訂閱 ($120/月)
+            </a>
+        </div>
+
+        <!-- PLAN 2: HOBBYIST (Main Focus) -->
+        <div class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-6 relative border-2 border-bona-gold shadow-[0_0_20px_rgba(212,175,55,0.15)] z-10 transform scale-105 my-8">
+            <div class="best-value-ribbon">🔥 輕度玩家首選</div>
+            <div class="text-center mb-6 pt-2">
+                <h3 class="text-lg font-bold text-white mb-1">半年訂閱制</h3>
+                <div class="flex justify-center items-baseline space-x-1">
+                    <span class="text-sm text-bona-gold">$</span>
+                    <span class="text-4xl font-black text-bona-gold">840</span>
+                    <span class="text-xs text-gray-400">/ 7個月</span>
+                </div>
+                <p class="text-[10px] text-gray-400 mt-2">平均每天不到 <span class="text-white font-bold">$5 元</span></p>
+            </div>
+
+            <div class="space-y-2 mb-6 border-t border-gray-700/50 pt-4">
+                <div class="check-item"><i class="fa-solid fa-check check-icon"></i> <span>個體上限：<strong class="text-white">150 隻</strong></span></div>
+                <div class="check-item"><i class="fa-solid fa-check check-icon"></i> <span><strong class="text-bona-gold">免收</strong> $450 設定費 (現省)</span></div>
+                <div class="check-item"><i class="fa-solid fa-check check-icon"></i> <span>買 6 個月 <strong class="text-bona-gold">送 1 個月</strong></span></div>
+                <div class="check-item"><i class="fa-solid fa-plus check-icon"></i> <span>支援加購「彈性擴充包」</span></div>
+            </div>
+
+            <a href="https://ganknow.com/services/81348-bonabeetle-bona-system-ban-nian-ding-gou-fang-an"block w-full gold-gradient text-black font-bold py-4 rounded-lg shadow-lg hover:brightness-110 transition-all text-center text-sm tracking-widest uppercase">
+                立即啟用方案
+            </a>
+        </div>
+
+        <!-- PLAN 3: MASTER -->
+        <div class="glass-card rounded-2xl p-6 relative border border-gray-700/50 grayscale hover:grayscale-0 transition-all duration-500">
+            <div class="absolute top-4 right-4 text-gray-600"><i class="fa-solid fa-crown text-2xl"></i></div>
+            <div class="mb-4">
+                <h3 class="text-lg font-bold text-white">重度玩家 (年約)</h3>
+                <div class="flex items-baseline space-x-1 mt-1">
+                    <span class="text-2xl font-bold text-white">$1,680</span>
+                    <span class="text-xs text-gray-500">/ 14個月</span>
+                </div>
+                <p class="text-[10px] text-gray-500 mt-1">平均每月 $120 · <span class="text-bona-gold">合約期內免費升級 PRO</span></p>
+            </div>
+            
+            <div class="space-y-2 mb-6 text-sm">
+                <div class="check-item"><i class="fa-solid fa-check text-gray-500"></i> 個體上限：<strong class="text-white">250 隻</strong></div>
+                <div class="check-item"><i class="fa-solid fa-check text-gray-500"></i> 免設定費 + 買 12 送 2</div>
+                <div class="check-item"><i class="fa-solid fa-star text-bona-gold"></i> <strong>免費無痛搬家至 PRO 專屬資料庫</strong></div>
+            </div>
+
+            <a href="https://ganknow.com/services/81349-bonabeetle-bona-system-1nian-ding-gou-fang-an"block w-full border border-gray-600 text-gray-300 font-bold py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-colors text-center text-xs tracking-widest uppercase">
+                成為 VIP 會員
+            </a>
+        </div>
+
+        <!-- ADD-ON: ELASTIC PACK -->
+        <div class="glass-card rounded-xl p-5 border border-gray-700/50 relative overflow-hidden mt-8">
+            <div class="absolute right-0 top-0 bg-gray-800 px-3 py-1 text-[10px] text-gray-400 rounded-bl-lg">隨時加購</div>
+            <div class="flex items-center mb-3">
+                <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mr-3 text-bona-gold"><i class="fa-solid fa-layer-group text-lg"></i></div>
+                <div>
+                    <h4 class="text-sm font-bold text-white">彈性擴充包 <span class="text-bona-gold font-mono">+50隻</span></h4>
+                    <p class="text-[10px] text-gray-400">爆產救星 · 費用依方案計算</p>
+                </div>
+            </div>
+            
+            <div class="space-y-2 border-t border-gray-800 pt-3">
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400">月繳用戶</span>
+                    <span class="text-white">+$30 <span class="text-gray-500">/月</span></span>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400">半年方案</span>
+                    <span class="text-white">$150 <span class="text-gray-500">/次 (約$25/月)</span></span>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-bona-gold font-bold">年約用戶</span>
+                    <span class="text-bona-gold font-bold">$250 <span class="text-bona-gold/70 font-normal">/次 (約$20/月)</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLAN 1: STARTER -->
+        <div class="text-center pt-8 pb-8">
+            <p class="text-xs text-gray-500 mb-3">還不確定嗎？先試試看吧。</p>
+            <div class="glass-card rounded-xl p-4 inline-block w-full border border-gray-800">
+                <div class="flex justify-between items-center">
+                    <div class="text-left">
+                        <h4 class="text-sm font-bold text-white">種子試用方案</h4>
+                        <p class="text-[10px] text-gray-400">上限 15 隻 · 終身免月費</p>
+                    </div>
+                    <a href="https://ganknow.com/services/81347-bonabeetle-bona-system-lite-zhong-zi-shi-yong-yue-jiao-qi-yong-she-ding" class="bg-gray-800 hover:bg-gray-700 text-white text-xs font-bold py-2 px-4 rounded border border-gray-600 transition-colors">
+                        $450 啟用
+                    </a>
+                </div>
+                <p class="text-[10px] text-bona-muted mt-2 text-left">* 設定費 $450 可全額折抵未來升級費用。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- STICKY CTA -->
+    <div id="sticky-cta" class="sticky-cta flex justify-between items-center">
+        <div class="flex flex-col">
+            <span class="text-xs text-gray-400">限時優惠</span>
+            <span class="text-sm font-bold text-bona-gold">免設定費 + 送1個月</span>
+        </div>
+        <a href="#pricing" class="bg-white text-black font-bold py-2 px-6 rounded-full text-sm shadow-lg hover:bg-gray-200 transition-colors">
+            立即搶購
+        </a>
+    </div>
+
+    <script>
+        // Sticky CTA logic
+        window.addEventListener('scroll', () => {
+            const pricingSection = document.getElementById('pricing');
+            const stickyCta = document.getElementById('sticky-cta');
+            const rect = pricingSection.getBoundingClientRect();
+            
+            // Show sticky CTA only when pricing section is NOT in view
+            if (rect.top > window.innerHeight || rect.bottom < 0) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
