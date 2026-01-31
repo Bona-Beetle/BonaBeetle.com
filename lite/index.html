@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BONA LITE | 數位蟲室系統</title>
-    <meta name="description" content="別讓你的蟲養著養著就忘了。BONA BEETLE，專為甲蟲玩家打造的數據資產管理系統。">
+    <meta name="description" content="飼育是科學，數據是你的資產。BONA BEETLE，專為甲蟲玩家打造的雲端數據管理系統。">
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="你的蟲，值得一張數位身分證 | BONA BEETLE">
+    <meta property="og:description" content="丟掉泛黃的筆記本。體驗 QR Code 物聯網與雲端資料庫的極致效率。">
+    <meta property="og:image" content="https://bonabeetle.com/assets/og-image.jpg">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BONA BEETLE LITE",
+      "applicationCategory": "ManagementApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "450",
+        "priceCurrency": "TWD"
+      },
+      "description": "專為甲蟲飼育者設計的數位資產管理系統，結合 QR Code 掃描與數據分析。"
+    }
+    </script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -33,7 +55,7 @@
         body { background-color: #0f0f0f; color: #e5e5e5; }
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #a68a2e 100%); }
         .glass-card { background: rgba(38, 38, 38, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .feature-icon { background: rgba(212, 175, 55, 0.1); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #d4af37; margin-bottom: 12px; }
+        .feature-icon { background: rgba(212, 175, 55, 0.1); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #d4af37; margin-bottom: 12px; font-size: 1.25rem; }
         .best-value-ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #d4af37; color: black; font-size: 0.75rem; font-weight: bold; padding: 4px 16px; border-radius: 20px; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); z-index: 20; border: 2px solid #0f0f0f; }
         .check-item { display: flex; align-items: start; gap: 10px; margin-bottom: 8px; font-size: 0.9rem; color: #d1d5db; }
         .check-icon { color: #d4af37; margin-top: 4px; flex-shrink: 0; }
@@ -54,49 +76,101 @@
 <body class="pb-32">
 
     <!-- HERO SECTION -->
-    <div class="relative w-full overflow-hidden mb-10 pt-16 pb-8 px-6 text-center">
+    <div class="relative w-full overflow-hidden mb-12 pt-16 pb-8 px-6 text-center">
+        <!-- Background Glow -->
         <div class="absolute top-[-10%] left-1/2 transform -translate-x-1/2 w-[120%] h-[60%] bg-bona-gold/10 blur-[80px] rounded-full pointer-events-none"></div>
+        
         <div class="relative z-10">
-            <span class="inline-block py-1 px-3 rounded-full bg-bona-gold/20 text-bona-gold text-xs font-bold tracking-widest mb-4 border border-bona-gold/30">SYSTEM ONLINE</span>
+            <span class="inline-block py-1 px-3 rounded-full bg-bona-gold/20 text-bona-gold text-xs font-bold tracking-widest mb-4 border border-bona-gold/30">CLOUD DATABASE SYSTEM</span>
             <h1 class="text-4xl font-black text-white leading-tight mb-4 tracking-wide">
-                你的蟲，值得<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-bona-lightGold to-bona-gold">一張身分證</span>
+                飼育是科學，<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-bona-lightGold to-bona-gold">數據是你的資產</span>
             </h1>
             <p class="text-bona-muted text-sm leading-relaxed max-w-xs mx-auto">
-                告別手寫標籤與 Excel。<br>用手機掃描，一秒喚醒蟲室的數位資產。
+                丟掉泛黃的筆記本。BONA BEETLE 結合 <strong>QR Code 物聯網</strong> 與 <strong>雲端資料庫</strong>。專為蟲室設計，單手操作，紀錄隨行。
             </p>
         </div>
     </div>
 
-    <!-- PAIN POINTS -->
-    <div class="px-6 mb-12">
-        <div class="glass-card rounded-2xl p-6 border-l-4 border-l-red-500">
-            <h3 class="text-lg font-bold text-white mb-4">你也遇過這些問題嗎？</h3>
-            <div class="space-y-4">
-                <div class="flex items-start"><i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i><p class="text-sm text-gray-400">想知道這隻幼蟲的父母是誰，卻找不到去年的紀錄紙？</p></div>
-                <div class="flex items-start"><i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i><p class="text-sm text-gray-400">養了幾十隻，忘記哪一瓶該換土，結果縮水或化蛹失敗？</p></div>
-                <div class="flex items-start"><i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i><p class="text-sm text-gray-400">賣蟲的時候，拿不出有說服力的血統證明，價格上不去？</p></div>
+    <!-- CORE FEATURES (From Flyer) -->
+    <div class="px-4 mb-16">
+        <div class="grid grid-cols-2 gap-3">
+            <div class="glass-card p-4 rounded-xl border border-gray-800">
+                <div class="text-bona-gold text-xl mb-2"><i class="fa-solid fa-moon"></i></div>
+                <h3 class="font-bold text-white text-sm mb-1">暗黑戰術面板</h3>
+                <p class="text-[10px] text-gray-500 leading-snug">低光源環境友善介面，保護眼睛，單手操作。</p>
+            </div>
+            <div class="glass-card p-4 rounded-xl border border-gray-800">
+                <div class="text-bona-gold text-xl mb-2"><i class="fa-solid fa-qrcode"></i></div>
+                <h3 class="font-bold text-white text-sm mb-1">QR Code 追蹤</h3>
+                <p class="text-[10px] text-gray-500 leading-snug">每隻個體自動生成專屬 QR Code，掃描即顯示履歷。</p>
+            </div>
+            <div class="glass-card p-4 rounded-xl border border-gray-800">
+                <div class="text-bona-gold text-xl mb-2"><i class="fa-solid fa-laptop-mobile"></i></div>
+                <h3 class="font-bold text-white text-sm mb-1">跨平台同步</h3>
+                <p class="text-[10px] text-gray-500 leading-snug">手機、平板或電腦，只要開啟瀏覽器，數據隨時同步。</p>
+            </div>
+            <div class="glass-card p-4 rounded-xl border border-gray-800">
+                <div class="text-bona-gold text-xl mb-2"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="font-bold text-white text-sm mb-1">零延遲架構</h3>
+                <p class="text-[10px] text-gray-500 leading-snug">採用 Optimistic UI 技術，輸入瞬間完成，不再卡頓。</p>
             </div>
         </div>
     </div>
 
-    <!-- SOLUTION SHOWCASE -->
-    <div class="px-6 mb-16">
-        <div class="text-center mb-8"><h2 class="text-2xl font-bold text-white mb-2">BONA SYSTEM</h2><p class="text-xs text-bona-gold uppercase tracking-[0.2em]">The Digital Breeding Solution</p></div>
-        <div class="grid gap-4">
-            <div class="bg-bona-card p-5 rounded-xl border border-gray-800"><div class="feature-icon"><i class="fa-solid fa-qrcode text-2xl"></i></div><h3 class="font-bold text-white mb-1">QR Code 掃描錄入</h3><p class="text-xs text-gray-500">貼上標籤，手機一掃，歷次體重、血統、換瓶日瞬間顯示。</p></div>
-            <div class="bg-bona-card p-5 rounded-xl border border-gray-800"><div class="feature-icon"><i class="fa-solid fa-chart-line text-2xl"></i></div><h3 class="font-bold text-white mb-1">可視化生長曲線</h3><p class="text-xs text-gray-500">不再憑感覺養蟲。數據化呈現生長趨勢，優劣一目瞭然。</p></div>
-            <div class="bg-bona-card p-5 rounded-xl border border-gray-800"><div class="feature-icon"><i class="fa-solid fa-database text-2xl"></i></div><h3 class="font-bold text-white mb-1">雲端資產庫</h3><p class="text-xs text-gray-500">資料安全存在您自己的 Notion。即使手機遺失，數據永遠都在。</p></div>
+    <!-- MEMBER BENEFITS (Extracted from Flyer) -->
+    <div class="px-6 mb-16 max-w-md mx-auto">
+        <div class="flex items-center mb-6">
+            <i class="fa-solid fa-crown text-bona-gold mr-3"></i>
+            <h2 class="text-lg font-bold text-white">LITE 會員專屬權益</h2>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-start">
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <div>
+                    <h4 class="text-sm font-bold text-gray-200">完整飼育歷史頁面</h4>
+                    <p class="text-[10px] text-gray-500">單頁檢視個體一生數據，血統脈絡清晰。</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <div>
+                    <h4 class="text-sm font-bold text-gray-200">定期資料回傳備份</h4>
+                    <p class="text-[10px] text-gray-500">每月自動 Email 完整數據 CSV，資料自主。</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <div>
+                    <h4 class="text-sm font-bold text-gray-200">舊資料免費搬家</h4>
+                    <p class="text-[10px] text-gray-500">專人協助匯入 Excel 紀錄，無痛轉移。</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <div>
+                    <h4 class="text-sm font-bold text-gray-200">精準成長率分析</h4>
+                    <p class="text-[10px] text-gray-500">自動計算「全期」與「換土區間」成長率。</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <div>
+                    <h4 class="text-sm font-bold text-gray-200">飼育對標系統 (不定期更新)</h4>
+                    <p class="text-[10px] text-gray-500">查詢資料庫平均數值，掌握個體排名。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 bg-bona-gold/10 border border-bona-gold/30 rounded-lg p-3 text-center">
+            <p class="text-xs text-bona-gold font-bold"><i class="fa-solid fa-star mr-1"></i> 未來 PRO 版優先升級與續約優惠資格</p>
         </div>
     </div>
 
     <!-- PRICING SECTION -->
-    <div id="pricing" class="px-4 space-y-6 max-w-md mx-auto relative">
+    <div id="pricing" class="px-4 space-y-6 max-w-md mx-auto relative mb-16">
         <div class="text-center mb-6">
             <h2 class="text-2xl font-bold text-white">選擇適合您的方案</h2>
-            <div class="inline-block mt-2 bg-gray-800 rounded-full px-4 py-1 border border-gray-700">
-                <p class="text-[10px] text-gray-400">原價 <span class="line-through">$150/月</span> + 設定費 <span class="line-through">$450</span></p>
-            </div>
         </div>
 
         <!-- NEW PLAN: STANDARD MONTHLY -->
@@ -119,9 +193,9 @@
             </div>
 
             <ul class="space-y-3 mb-6">
-                <li class="flex items-center text-sm text-gray-300"><i class="fa-solid fa-info-circle text-gray-500 mr-3 text-xs"></i> <span>需收 <strong class="text-white">$450</strong> 設定費</span></li>
-                <li class="flex items-center text-sm text-gray-300"><i class="fa-solid fa-check text-bona-gold mr-3 text-xs"></i> <span>輕鬆入門，無綁約壓力</span></li>
-                <li class="flex items-center text-sm text-gray-300"><i class="fa-solid fa-plus text-bona-gold mr-3 text-xs"></i> <span>支援加購「彈性擴充包」</span></li>
+                <li class="check-item"><i class="fa-solid fa-info-circle text-gray-500 mr-3 text-xs mt-1"></i> <span>需收 <strong class="text-white">$450</strong> 設定費</span></li>
+                <li class="check-item"><i class="fa-solid fa-check check-icon"></i> <span>輕鬆入門，無綁約壓力</span></li>
+                <li class="check-item"><i class="fa-solid fa-plus check-icon"></i> <span>支援加購「彈性擴充包」</span></li>
             </ul>
             <div class="text-center mb-3">
                 <p class="text-[10px] text-bona-muted">👇 想省 $450 設定費？參考下方方案 👇</p>
@@ -151,7 +225,7 @@
                 <div class="check-item"><i class="fa-solid fa-plus check-icon"></i> <span>支援加購「彈性擴充包」</span></div>
             </div>
 
-            <a href="https://ganknow.com/services/81348-bonabeetle-bona-system-ban-nian-ding-gou-fang-an"block w-full gold-gradient text-black font-bold py-4 rounded-lg shadow-lg hover:brightness-110 transition-all text-center text-sm tracking-widest uppercase">
+            <a href="https://ganknow.com/services/81348-bonabeetle-bona-system-ban-nian-ding-gou-fang-an" class="block w-full gold-gradient text-black font-bold py-4 rounded-lg shadow-lg hover:brightness-110 transition-all text-center text-sm tracking-widest uppercase">
                 立即啟用方案
             </a>
         </div>
@@ -174,7 +248,7 @@
                 <div class="check-item"><i class="fa-solid fa-star text-bona-gold"></i> <strong>免費無痛搬家至 PRO 專屬資料庫</strong></div>
             </div>
 
-            <a href="https://ganknow.com/services/81349-bonabeetle-bona-system-1nian-ding-gou-fang-an"block w-full border border-gray-600 text-gray-300 font-bold py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-colors text-center text-xs tracking-widest uppercase">
+            <a href="https://ganknow.com/services/81349-bonabeetle-bona-system-1nian-ding-gou-fang-an" class="block w-full border border-gray-600 text-gray-300 font-bold py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-colors text-center text-xs tracking-widest uppercase">
                 成為 VIP 會員
             </a>
         </div>
@@ -225,6 +299,50 @@
 
     </div>
 
+    <!-- DISCLAIMER / LEGAL SECTION -->
+    <div class="px-6 mb-12 max-w-md mx-auto">
+        <div class="border border-red-900/50 bg-red-900/10 rounded-xl p-5 relative overflow-hidden">
+            <!-- Icon Background -->
+            <i class="fa-solid fa-scale-balanced absolute -right-4 -bottom-4 text-6xl text-red-900/20"></i>
+            
+            <h3 class="text-sm font-bold text-red-400 mb-4 flex items-center">
+                <i class="fa-solid fa-triangle-exclamation mr-2"></i> 服務條款與免責聲明
+            </h3>
+            
+            <div class="space-y-4 text-[11px] text-gray-400 leading-relaxed">
+                <div>
+                    <strong class="text-gray-300 block mb-1">1. 資料託管 (Data Hosting)</strong>
+                    本服務為 SaaS 模式，您的飼育數據將儲存於 BONA BEETLE 官方資料庫中。我們承諾定期維護系統穩定與數據備份，但 <span class="text-red-400 font-bold">不對用戶輸入數據的真實性與其市場價值負責</span>。
+                </div>
+                
+                <div>
+                    <strong class="text-gray-300 block mb-1">2. 使用權限 (License)</strong>
+                    購買後您將獲得一組 「專屬授權碼 (License Key)」 用於登入系統。本商品 <span class="text-red-400 font-bold">不包含</span> 系統原始碼 (Source Code) 或 Notion 模板擁有權。
+                </div>
+
+                <div>
+                    <strong class="text-gray-300 block mb-1">3. 隱私承諾 (Privacy)</strong>
+                    您的數據僅供您個人管理使用，未經授權絕不公開。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ SECTION For AEO -->
+    <div class="px-6 mb-12 max-w-md mx-auto">
+        <h3 class="text-xl font-bold text-white mb-6 text-center">常見問題</h3>
+        <div class="space-y-4">
+            <div class="glass-card p-4 rounded-xl">
+                <h4 class="text-sm font-bold text-bona-gold mb-2">Q: 為什麼我需要數位化紀錄？</h4>
+                <p class="text-xs text-gray-400">A: 紙本紀錄容易遺失且無法分析。BONA LITE 能自動繪製生長曲線，幫助您找出換肉率最高的黃金血統，將蟲隻價值最大化。</p>
+            </div>
+            <div class="glass-card p-4 rounded-xl">
+                <h4 class="text-sm font-bold text-bona-gold mb-2">Q: 資料會不見嗎？</h4>
+                <p class="text-xs text-gray-400">A: 不會。BONA 採用<strong>企業級雲端資料庫</strong>架構，您的數據皆安全儲存於雲端，<strong>並非僅存於個人裝置或資料庫</strong>。即使更換手機或電腦，登入後即可隨時同步存取。</p>
+            </div>
+        </div>
+    </div>
+
     <!-- STICKY CTA -->
     <div id="sticky-cta" class="sticky-cta flex justify-between items-center">
         <div class="flex flex-col">
@@ -234,6 +352,15 @@
         <a href="#pricing" class="bg-white text-black font-bold py-2 px-6 rounded-full text-sm shadow-lg hover:bg-gray-200 transition-colors">
             立即搶購
         </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="text-center mt-8 pb-32 px-6">
+        <p class="text-[10px] text-gray-600">
+            * 試用期後若未續約，資料將保留但僅供讀取。<br>
+            * 方案升級可隨時進行，費用依比例計算。<br>
+            &copy; 2026 BONA BEETLE SYSTEMS.
+        </p>
     </div>
 
     <script>
