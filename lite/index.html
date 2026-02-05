@@ -58,7 +58,7 @@
         .feature-icon { background: rgba(212, 175, 55, 0.1); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #d4af37; margin-bottom: 12px; font-size: 1.25rem; }
         .best-value-ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #d4af37; color: black; font-size: 0.75rem; font-weight: bold; padding: 4px 16px; border-radius: 20px; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); z-index: 20; border: 2px solid #0f0f0f; }
         .check-item { display: flex; align-items: start; gap: 10px; margin-bottom: 8px; font-size: 0.9rem; color: #d1d5db; }
-        .check-icon { color: #d4af37; margin-top: 4px; flex-shrink: 0; }
+        .check-icon { color: #d4af37; margin-top: 4px; flex-shrink: 0; width: 16px; text-align: center; }
         
         /* Sticky CTA for Mobile */
         .sticky-cta {
@@ -75,8 +75,8 @@
 </head>
 <body class="pb-32">
 
-    <!-- HERO SECTION -->
-    <div class="relative w-full overflow-hidden mb-12 pt-16 pb-8 px-6 text-center">
+    <!-- HERO SECTION (Fix: Added max-w-md mx-auto) -->
+    <div class="relative w-full overflow-hidden mb-12 pt-16 pb-8 px-6 text-center max-w-md mx-auto">
         <!-- Background Glow -->
         <div class="absolute top-[-10%] left-1/2 transform -translate-x-1/2 w-[120%] h-[60%] bg-bona-gold/10 blur-[80px] rounded-full pointer-events-none"></div>
         
@@ -92,33 +92,33 @@
         </div>
     </div>
 
-    <!-- CORE FEATURES (From Flyer) -->
-    <div class="px-4 mb-16">
+    <!-- CORE FEATURES (Fix: Added max-w-md mx-auto and reduced padding to p-3) -->
+    <div class="px-4 mb-16 max-w-md mx-auto">
         <div class="grid grid-cols-2 gap-3">
-            <div class="glass-card p-4 rounded-xl border border-gray-800">
-                <div class="text-bona-gold text-xl mb-2"><i class="fa-solid fa-moon"></i></div>
+            <div class="glass-card p-3 rounded-xl border border-gray-800 h-full flex flex-col items-center text-center">
+                <div class="text-bona-gold text-lg mb-2"><i class="fa-solid fa-moon"></i></div>
                 <h3 class="font-bold text-white text-sm mb-1">暗黑戰術面板</h3>
                 <p class="text-[10px] text-gray-500 leading-snug">低光源環境友善介面，保護眼睛，單手操作。</p>
             </div>
-            <div class="glass-card p-4 rounded-xl border border-gray-800">
-                <div class="text-bona-gold text-xl mb-2"><i class="fa-solid fa-qrcode"></i></div>
+            <div class="glass-card p-3 rounded-xl border border-gray-800 h-full flex flex-col items-center text-center">
+                <div class="text-bona-gold text-lg mb-2"><i class="fa-solid fa-qrcode"></i></div>
                 <h3 class="font-bold text-white text-sm mb-1">QR Code 追蹤</h3>
                 <p class="text-[10px] text-gray-500 leading-snug">每隻個體自動生成專屬 QR Code，掃描即顯示履歷。</p>
             </div>
-            <div class="glass-card p-4 rounded-xl border border-gray-800">
-                <div class="text-bona-gold text-xl mb-2"><i class="fa-solid fa-laptop-mobile"></i></div>
+            <div class="glass-card p-3 rounded-xl border border-gray-800 h-full flex flex-col items-center text-center">
+                <div class="text-bona-gold text-lg mb-2"><i class="fa-solid fa-laptop-mobile"></i></div>
                 <h3 class="font-bold text-white text-sm mb-1">跨平台同步</h3>
                 <p class="text-[10px] text-gray-500 leading-snug">手機、平板或電腦，只要開啟瀏覽器，數據隨時同步。</p>
             </div>
-            <div class="glass-card p-4 rounded-xl border border-gray-800">
-                <div class="text-bona-gold text-xl mb-2"><i class="fa-solid fa-bolt"></i></div>
-                <h3 class="font-bold text-white text-sm mb-1">零延遲架構</h3>
-                <p class="text-[10px] text-gray-500 leading-snug">採用 Optimistic UI 技術，輸入瞬間完成，不再卡頓。</p>
+            <div class="glass-card p-3 rounded-xl border border-gray-800 h-full flex flex-col items-center text-center">
+                <div class="text-bona-gold text-lg mb-2"><i class="fa-solid fa-calendar-check"></i></div>
+                <h3 class="font-bold text-white text-sm mb-1">週期智慧預警</h3>
+                <p class="text-[10px] text-gray-500 leading-snug">自動推算 60 天換土週期，紅綠燈號即時顯示狀態。</p>
             </div>
         </div>
     </div>
 
-    <!-- MEMBER BENEFITS (Extracted from Flyer) -->
+    <!-- MEMBER BENEFITS -->
     <div class="px-6 mb-16 max-w-md mx-auto">
         <div class="flex items-center mb-6">
             <i class="fa-solid fa-crown text-bona-gold mr-3"></i>
@@ -126,38 +126,38 @@
         </div>
         <div class="space-y-4">
             <div class="flex items-start">
-                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs w-4 text-center"></i>
+                <div>
+                    <h4 class="text-sm font-bold text-gray-200">智慧換土管家 (Butler) <span class="bg-bona-gold text-black text-[9px] px-1.5 py-0.5 rounded ml-1">NEW</span></h4>
+                    <p class="text-[10px] text-gray-500">自動演算換土日，依急迫性分為逾期、警示與安全區。</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs w-4 text-center"></i>
                 <div>
                     <h4 class="text-sm font-bold text-gray-200">完整飼育歷史頁面</h4>
                     <p class="text-[10px] text-gray-500">單頁檢視個體一生數據，血統脈絡清晰。</p>
                 </div>
             </div>
             <div class="flex items-start">
-                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs w-4 text-center"></i>
                 <div>
                     <h4 class="text-sm font-bold text-gray-200">定期資料回傳備份</h4>
                     <p class="text-[10px] text-gray-500">每月自動 Email 完整數據 CSV，資料自主。</p>
                 </div>
             </div>
             <div class="flex items-start">
-                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs w-4 text-center"></i>
                 <div>
                     <h4 class="text-sm font-bold text-gray-200">舊資料免費搬家</h4>
                     <p class="text-[10px] text-gray-500">專人協助匯入 Excel 紀錄，無痛轉移。</p>
                 </div>
             </div>
             <div class="flex items-start">
-                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
+                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs w-4 text-center"></i>
                 <div>
                     <h4 class="text-sm font-bold text-gray-200">精準成長率分析</h4>
                     <p class="text-[10px] text-gray-500">自動計算「全期」與「換土區間」成長率。</p>
-                </div>
-            </div>
-            <div class="flex items-start">
-                <i class="fa-solid fa-check text-bona-gold mt-1 mr-3 text-xs"></i>
-                <div>
-                    <h4 class="text-sm font-bold text-gray-200">飼育對標系統 (不定期更新)</h4>
-                    <p class="text-[10px] text-gray-500">查詢資料庫平均數值，掌握個體排名。</p>
                 </div>
             </div>
         </div>
@@ -173,7 +173,7 @@
             <h2 class="text-2xl font-bold text-white">選擇適合您的方案</h2>
         </div>
 
-        <!-- NEW PLAN: STANDARD MONTHLY -->
+        <!-- PLAN 1: STANDARD MONTHLY -->
         <div class="glass-card rounded-2xl p-6 relative border border-gray-700 hover:border-gray-500 transition-colors">
             <div class="flex justify-between items-start mb-4">
                 <div>
@@ -193,7 +193,7 @@
             </div>
 
             <ul class="space-y-3 mb-6">
-                <li class="check-item"><i class="fa-solid fa-info-circle text-gray-500 mr-3 text-xs mt-1"></i> <span>需收 <strong class="text-white">$450</strong> 設定費</span></li>
+                <li class="check-item"><i class="fa-solid fa-info-circle text-gray-500 mr-3 text-xs mt-1 w-4 text-center"></i> <span>需收 <strong class="text-white">$450</strong> 設定費</span></li>
                 <li class="check-item"><i class="fa-solid fa-check check-icon"></i> <span>輕鬆入門，無綁約壓力</span></li>
                 <li class="check-item"><i class="fa-solid fa-plus check-icon"></i> <span>支援加購「彈性擴充包」</span></li>
             </ul>
@@ -206,7 +206,7 @@
         </div>
 
         <!-- PLAN 2: HOBBYIST (Main Focus) -->
-        <div class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-6 relative border-2 border-bona-gold shadow-[0_0_20px_rgba(212,175,55,0.15)] z-10 transform scale-105 my-8">
+        <div class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-6 relative border-2 border-bona-gold shadow-[0_0_20px_rgba(212,175,55,0.15)] z-10 my-6">
             <div class="best-value-ribbon">🔥 輕度玩家首選</div>
             <div class="text-center mb-6 pt-2">
                 <h3 class="text-lg font-bold text-white mb-1">半年訂閱制</h3>
@@ -243,9 +243,9 @@
             </div>
             
             <div class="space-y-2 mb-6 text-sm">
-                <div class="check-item"><i class="fa-solid fa-check text-gray-500"></i> 個體上限：<strong class="text-white">250 隻</strong></div>
-                <div class="check-item"><i class="fa-solid fa-check text-gray-500"></i> 免設定費 + 買 12 送 2</div>
-                <div class="check-item"><i class="fa-solid fa-star text-bona-gold"></i> <strong>免費無痛搬家至 PRO 專屬資料庫</strong></div>
+                <div class="check-item"><i class="fa-solid fa-check text-gray-500 check-icon"></i> <span>個體上限：<strong class="text-white">250 隻</strong></span></div>
+                <div class="check-item"><i class="fa-solid fa-check text-gray-500 check-icon"></i> <span>免設定費 + 買 12 送 2</span></div>
+                <div class="check-item"><i class="fa-solid fa-star text-bona-gold check-icon"></i> <span><strong>免費無痛搬家至 PRO 專屬資料庫</strong></span></div>
             </div>
 
             <a href="https://ganknow.com/services/81349-bonabeetle-bona-system-1nian-ding-gou-fang-an" class="block w-full border border-gray-600 text-gray-300 font-bold py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-colors text-center text-xs tracking-widest uppercase">
