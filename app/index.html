@@ -30,7 +30,7 @@
         }
     </script>
     <style>
-        /* APP SHELL LOCK - 100% PRESERVED FROM YOUR FILE */
+        /* APP SHELL LOCK - 100% PRESERVED */
         html { height: 100%; overflow: hidden; background-color: #0f0f0f; }
         body { 
             height: 100%; width: 100%; margin: 0; padding: 0; 
@@ -93,7 +93,7 @@
             padding: 1rem; padding-bottom: max(1rem, env(safe-area-inset-bottom));
         }
 
-        /* DASHBOARD NAV (新增分頁樣式) */
+        /* DASHBOARD NAV */
         .dashboard-nav {
             position: absolute; bottom: 0; left: 0; right: 0; z-index: 100;
             background-color: rgba(15, 15, 15, 0.95);
@@ -132,7 +132,7 @@
     <!-- APP SHELL -->
     <div id="app-container">
 
-        <!-- VIEW: LOGIN (原汁原味) -->
+        <!-- VIEW: LOGIN -->
         <div id="view-login" class="flex h-full flex-col items-center justify-center p-6 z-10 relative">
             <div class="mb-8 text-center">
                 <div class="w-24 h-24 mx-auto mb-4 bg-bona-dark rounded-full border-2 border-bona-gold flex items-center justify-center overflow-hidden shadow-lg shadow-bona-gold/20">
@@ -155,7 +155,7 @@
             </div>
         </div>
 
-        <!-- VIEW: DASHBOARD (整合分頁) -->
+        <!-- VIEW: DASHBOARD -->
         <div id="view-dashboard" class="hidden h-full flex-col relative">
             <header class="fixed-header-wrapper px-6">
                 <div class="flex justify-between items-center mb-3 w-full px-4">
@@ -177,10 +177,10 @@
                 </div>
             </header>
 
-            <!-- TAB 1: HOME (原始儀表板內容) -->
+            <!-- TAB 1: HOME -->
             <main id="tab-home" class="dashboard-content">
                 <div class="grid grid-cols-2 gap-5 mb-5 mt-4">
-                    <button onclick="window.openScanner()" class="p-6 glass-panel rounded-xl flex flex-col items-center justify-center space-y-3 hover:bg-gray-800 transition-colors border-bona-gold/30 border min-h-[150px]"><i class="fa-solid fa-qrcode text-4xl text-bona-gold"></i><span class="text-sm font-bold tracking-wider">掃描 QR Code</span></button>
+                    <button onclick="window.openScanner('search')" class="p-6 glass-panel rounded-xl flex flex-col items-center justify-center space-y-3 hover:bg-gray-800 transition-colors border-bona-gold/30 border min-h-[150px]"><i class="fa-solid fa-qrcode text-4xl text-bona-gold"></i><span class="text-sm font-bold tracking-wider">掃描 QR Code</span></button>
                     <button onclick="window.showNewEntryForm()" class="p-6 glass-panel rounded-xl flex flex-col items-center justify-center space-y-3 hover:bg-gray-800 transition-colors min-h-[150px]"><i class="fa-solid fa-plus text-4xl text-gray-400"></i><span class="text-sm font-bold tracking-wider text-gray-400">新蟲錄入</span></button>
                 </div>
 
@@ -204,7 +204,7 @@
                 </div>
             </main>
 
-            <!-- TAB 2: BUTLER (管家功能) -->
+            <!-- TAB 2: BUTLER -->
             <main id="tab-butler" class="dashboard-content hidden">
                 <div class="flex justify-between items-end mb-6 mt-4">
                     <div>
@@ -235,15 +235,15 @@
                 </div>
             </main>
 
-            <!-- TAB 3: ASSET (我的) -->
+            <!-- TAB 3: ASSET -->
             <main id="tab-asset" class="dashboard-content hidden">
                 <div class="text-center py-40 opacity-30 italic">
                     <p class="text-[10px] uppercase tracking-widest">Account & Asset Settings</p>
-                    <p class="text-[9px] mt-2">v2.1.3 Stable</p>
+                    <p class="text-[9px] mt-2">v2.1.5 Stable</p>
                 </div>
             </main>
 
-            <!-- BOTTOM NAV (分頁切換) -->
+            <!-- BOTTOM NAV -->
             <nav class="dashboard-nav">
                 <button onclick="window.switchDashTab('home')" id="nav-home" class="nav-item active-tab">
                     <i class="fa-solid fa-house-chimney mb-1 text-xl"></i><span>錄入</span>
@@ -257,7 +257,7 @@
             </nav>
         </div>
 
-        <!-- VIEW: DETAIL (保留原始) -->
+        <!-- VIEW: DETAIL -->
         <div id="view-detail" class="hidden h-full flex-col relative">
             <header class="detail-header">
                 <div class="flex justify-start">
@@ -324,6 +324,23 @@
             <div id="reader" class="w-full h-full bg-black relative"><p class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 text-sm">相機啟動中...</p></div>
         </div>
 
+        <!-- QR CODE MODAL (RESTORED) -->
+        <div id="modal-qr" class="hidden fixed inset-0 z-[500] bg-black/95 flex items-center justify-center p-6 backdrop-blur-md">
+            <div class="bg-white rounded-3xl p-8 w-full max-w-sm flex flex-col items-center space-y-6 shadow-2xl relative">
+                <button onclick="window.closeQRModal()" class="absolute -top-12 right-0 text-white p-2"><i class="fa-solid fa-times text-3xl"></i></button>
+                <div class="text-center">
+                    <div class="text-black text-2xl font-black tracking-tighter">BONA <span class="text-bona-gold">BEETLE</span></div>
+                    <div class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Digital Verified Asset</div>
+                </div>
+                <div id="qrcode" class="p-2 bg-white rounded-lg border-4 border-bona-black/5"></div>
+                <div class="text-center w-full">
+                    <div id="qr-id-label" class="text-black font-mono font-bold text-xl tracking-widest mb-1">--</div>
+                    <div class="text-gray-400 text-[10px] uppercase">Scan for detailed logs</div>
+                </div>
+                <button onclick="window.closeQRModal()" class="w-full bg-black text-white py-4 rounded-2xl font-bold uppercase tracking-widest text-sm">確認完成</button>
+            </div>
+        </div>
+
         <div id="modal-update" class="hidden fixed inset-0 z-[150] bg-black/90 flex items-end sm:items-center justify-center p-4 backdrop-blur-sm">
             <div class="bg-bona-card w-full max-w-sm rounded-xl p-6 border border-gray-700 shadow-2xl relative max-h-[90vh] overflow-y-auto">
                 <button onclick="window.closeUpdateModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white p-2 z-50"><i class="fa-solid fa-times text-xl"></i></button>
@@ -340,22 +357,39 @@
             </div>
         </div>
 
-    <div id="modal-new-entry" class="hidden fixed inset-0 z-[200] bg-black/90 flex items-start sm:items-center justify-center p-4 backdrop-blur-sm overflow-y-auto">
-        <div class="bg-bona-card w-full max-w-sm rounded-xl p-6 border border-gray-700 shadow-2xl relative my-8">
+    <!-- MODAL: NEW ENTRY (FIXED LAYOUT) -->
+    <div id="modal-new-entry" class="hidden fixed inset-0 z-[200] bg-black/90 flex items-start justify-center p-4 pt-32 backdrop-blur-sm overflow-y-auto">
+        <div class="bg-bona-card w-full max-w-sm rounded-xl p-6 border border-gray-700 shadow-2xl relative mb-24">
             <button onclick="window.closeNewEntryModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white p-2 z-50"><i class="fa-solid fa-times text-xl"></i></button>
             <h3 class="text-xl font-bold text-white mb-6 tracking-wide border-b border-gray-800 pb-4">新蟲 <span class="text-bona-gold">錄入</span></h3>
             <form id="form-new-entry" onsubmit="window.handleNewEntrySubmit(event)" class="space-y-6">
-                <!-- Smart ID -->
+                <!-- Smart ID (Reverted to Big Box Style) -->
                 <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 space-y-4">
-                    <label class="block text-xs text-bona-gold uppercase font-bold tracking-widest text-center mb-2">設定物種代碼 (Prefix)</label>
-                    <input type="text" id="id-prefix" class="w-full bg-black border-2 border-bona-gold/50 rounded-xl text-white text-4xl p-4 outline-none text-center font-bold uppercase tracking-widest h-20 focus:border-bona-gold transition-colors" placeholder="D" value="D" oninput="this.value = this.value.toUpperCase(); window.updateIDPreview()">
-                    <div class="text-center"><button type="button" onclick="document.getElementById('id-details').classList.toggle('hidden')" class="text-xs text-gray-500 underline hover:text-white">顯示/隱藏 詳細編碼設定</button></div>
-                    <div id="id-details" class="hidden grid grid-cols-3 gap-3 pt-2 border-t border-gray-800">
-                        <div><label class="block text-[10px] text-gray-500 mb-1 text-center">年份</label><select id="id-year" class="w-full bg-black border border-gray-600 rounded-lg text-white p-2 text-center" onchange="window.updateIDPreview()"><option value="24">24</option><option value="25">25</option><option value="26">26</option></select></div>
-                        <div><label class="block text-[10px] text-gray-500 mb-1 text-center">批次</label><input type="number" id="id-batch" class="w-full bg-black border border-gray-600 rounded-lg text-white p-2 text-center" value="01" oninput="window.updateIDPreview()"></div>
-                        <div><label class="block text-[10px] text-gray-500 mb-1 text-center">序號</label><input type="number" id="id-seq" class="w-full bg-black border border-gray-600 rounded-lg text-white p-2 text-center" value="001" oninput="window.updateIDPreview()"></div>
+                    <label class="block text-xs text-bona-gold uppercase font-bold tracking-widest text-center mb-2">物種代碼 (Prefix)</label>
+                    
+                    <!-- Big Prefix Input (Editable, 3 chars) -->
+                    <input type="text" id="id-prefix" class="w-full bg-black border-2 border-bona-gold/50 rounded-xl text-white text-4xl p-4 outline-none text-center font-bold uppercase tracking-widest h-20 focus:border-bona-gold transition-colors" placeholder="D" value="D" maxlength="3" oninput="this.value = this.value.toUpperCase(); window.updateIDPreview()">
+                    
+                    <!-- Detailed Inputs (Year / Batch / Seq) -->
+                    <div class="grid grid-cols-3 gap-3 pt-2 border-t border-gray-800">
+                        <div>
+                            <label class="block text-[10px] text-gray-500 mb-1 text-center">年份</label>
+                            <input type="number" id="id-year" class="w-full bg-black border border-gray-600 rounded-lg text-white p-2 text-center font-mono font-bold" value="24" oninput="window.updateIDPreview()">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] text-gray-500 mb-1 text-center">批次</label>
+                            <input type="number" id="id-batch" class="w-full bg-black border border-gray-600 rounded-lg text-white p-2 text-center font-mono font-bold" value="01" oninput="window.updateIDPreview()">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] text-gray-500 mb-1 text-center">序號</label>
+                            <input type="number" id="id-seq" class="w-full bg-black border border-gray-600 rounded-lg text-white p-2 text-center font-mono font-bold" value="001" oninput="window.updateIDPreview()">
+                        </div>
                     </div>
-                    <div class="text-center font-mono text-xl font-bold text-white tracking-widest bg-black/50 py-2 rounded mt-2" id="id-preview">D-24-01-001</div>
+
+                    <!-- Preview -->
+                    <div class="text-center">
+                        <div id="id-preview" class="inline-block px-4 py-2 bg-black/50 rounded border border-gray-800 text-bona-gold font-mono font-bold tracking-widest text-lg">D-24-01-001</div>
+                    </div>
                 </div>
                 <!-- Dates -->
                 <div class="grid grid-cols-2 gap-5"><div><label class="block text-xs text-gray-400 uppercase mb-2 font-bold">孵化日</label><input type="date" id="new-hatch-date" class="w-full bg-black border border-gray-700 rounded-lg p-3 text-white text-base focus:border-bona-gold outline-none h-12"></div><div><label class="block text-xs text-gray-400 uppercase mb-2 font-bold">量測日期</label><input type="date" id="new-check-date" class="w-full bg-black border border-gray-700 rounded-lg p-3 text-white text-base focus:border-bona-gold outline-none h-12"></div></div>
@@ -409,7 +443,12 @@
                         <div><label class="block text-xs text-gray-500 uppercase mb-1">添加劑 (Booster)</label><select id="new-booster" class="w-full bg-black border border-gray-700 rounded-lg p-3 text-white text-base outline-none h-12"><option value="無添加">無添加</option><option value="10g/10L">10g/10L</option><option value="20g/10L">20g/10L</option><option value="極限組">極限組</option></select></div>
                     </div>
                 </div>
-                <button type="submit" class="w-full gold-gradient text-black font-bold py-4 rounded-lg mt-4 uppercase tracking-widest shadow-lg hover:brightness-110 text-lg">確認錄入系統</button>
+                
+                <!-- Buttons with Cancel -->
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                    <button type="button" onclick="window.closeNewEntryModal()" class="w-full bg-gray-800 text-white font-bold py-4 rounded-lg shadow-lg hover:bg-gray-700 uppercase tracking-widest text-lg">取消</button>
+                    <button type="submit" class="w-full gold-gradient text-black font-bold py-4 rounded-lg shadow-lg hover:brightness-110 uppercase tracking-widest text-lg">確認錄入</button>
+                </div>
             </form>
         </div>
     </div>
@@ -422,6 +461,7 @@
         let quotaInfo = { max: 50, used: 0 }; 
         let html5QrcodeScanner = null;
         let scanTargetId = null; 
+        let scanMode = 'search'; // 'search' or 'fill'
         let currentDetailData = null;
         let historyDataCache = []; 
 
@@ -591,15 +631,115 @@
 
         window.logout = function() { localStorage.removeItem('bona_user_key'); localStorage.removeItem('bona_user_id'); currentUser = null; location.reload(); }
         window.handleManualSearch = async function() { if (!currentUser) return window.showNotification('請先登入', 'error'); let id = document.getElementById('search-id').value.trim().toUpperCase(); const cleanInput = id.replace(/[^A-Z0-9]/g, ''); if (cleanInput.length === 7 && /^\d+$/.test(cleanInput)) { id = `D-${cleanInput.substring(0, 2)}-${cleanInput.substring(2, 4)}-${cleanInput.substring(4)}`; window.showNotification(`自動修正 ID 為: ${id}`, 'success'); } else if (cleanInput.length >= 8) { const suffix = cleanInput.slice(-7); const prefix = cleanInput.slice(0, -7); id = `${prefix}-${suffix.substring(0, 2)}-${suffix.substring(2, 4)}-${suffix.substring(4)}`; } if (!id) return window.showNotification('請輸入編號', 'error'); await window.fetchBeetleData(id); }
-        window.showNewEntryForm = function() { if (quotaInfo.used >= quotaInfo.max) { document.getElementById('modal-upgrade').classList.remove('hidden'); return; } document.getElementById('form-new-entry').reset(); const today = new Date().toISOString().split('T')[0]; document.getElementById('new-check-date').value = today; document.getElementById('new-hatch-date').value = today; const lastSire = localStorage.getItem('last_sire'); const lastDam = localStorage.getItem('last_dam'); if(lastSire) document.getElementById('new-sire').value = lastSire; if(lastDam) document.getElementById('new-dam').value = lastDam; window.updateIDPreview(); const lastSeq = localStorage.getItem('last_seq'); if (lastSeq) { const nextSeq = parseInt(lastSeq) + 1; document.getElementById('id-seq').value = nextSeq.toString().padStart(3, '0'); window.updateIDPreview(); } document.getElementById('modal-new-entry').classList.remove('hidden'); }
+        window.showNewEntryForm = function() { 
+            if (quotaInfo.used >= quotaInfo.max) { document.getElementById('modal-upgrade').classList.remove('hidden'); return; } 
+            document.getElementById('form-new-entry').reset(); 
+            
+            // UNLOCK PREFIX LOGIC: Restore last prefix or default to 'D'
+            const lastPrefix = localStorage.getItem('last_prefix');
+            if (lastPrefix) document.getElementById('id-prefix').value = lastPrefix;
+            else document.getElementById('id-prefix').value = 'D';
+
+            const today = new Date().toISOString().split('T')[0]; 
+            document.getElementById('new-check-date').value = today; 
+            document.getElementById('new-hatch-date').value = today; 
+            
+            const lastSire = localStorage.getItem('last_sire'); 
+            const lastDam = localStorage.getItem('last_dam'); 
+            if(lastSire) document.getElementById('new-sire').value = lastSire; 
+            if(lastDam) document.getElementById('new-dam').value = lastDam; 
+            
+            window.updateIDPreview(); 
+            const lastSeq = localStorage.getItem('last_seq'); 
+            if (lastSeq) { 
+                const nextSeq = parseInt(lastSeq) + 1; 
+                document.getElementById('id-seq').value = nextSeq.toString().padStart(3, '0'); 
+                window.updateIDPreview(); 
+            } 
+            document.getElementById('modal-new-entry').classList.remove('hidden'); 
+        }
         window.openUpdateModal = function() { const today = new Date().toISOString().split('T')[0]; document.getElementById('update-date').value = today; document.getElementById('modal-update').classList.remove('hidden'); }
         window.closeUpdateModal = function() { document.getElementById('modal-update').classList.add('hidden'); }
         window.closeNewEntryModal = function() { document.getElementById('modal-new-entry').classList.add('hidden'); }
         window.showQRCodeForCurrent = function() { currentDetailData && currentDetailData.id ? window.openQRModal(window.cleanData(currentDetailData.id)) : window.showNotification('無資料', 'error'); }
         window.openQRModal = function(id) { const modal = document.getElementById('modal-qr'); const container = document.getElementById('qrcode'); container.innerHTML = ''; document.getElementById('qr-id-label').innerText = id; new QRCode(container, { text: id, width: 180, height: 180, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.H }); modal.classList.remove('hidden'); }
         window.closeQRModal = function() { document.getElementById('modal-qr').classList.add('hidden'); }
-        window.openScanner = function(mode = 'search', targetId = null) { scanTargetId = targetId; window.switchView('scanner'); setTimeout(() => { if (!html5QrcodeScanner && typeof Html5Qrcode !== 'undefined') html5QrcodeScanner = new Html5Qrcode("reader"); if(html5QrcodeScanner) { html5QrcodeScanner.start({ facingMode: "environment" }, { fps: 10, qrbox: 250 }, (decodedText) => { alert("掃描成功: " + decodedText); closeScanner(); }).catch(e => { alert("相機啟動失敗"); closeScanner(); }); } }, 100); }
-        window.closeScanner = function() { if (html5QrcodeScanner?.isScanning) { html5QrcodeScanner.stop().then(() => { html5QrcodeScanner.clear(); window.switchView('dashboard'); }).catch(() => window.switchView('dashboard')); } else window.switchView('dashboard'); }
+        
+        // --- FIXED: QR Code Scanner Implementation (No Alert) ---
+        window.openScanner = function(mode = 'search', targetId = null) {
+            scanMode = mode;
+            scanTargetId = targetId;
+            window.switchView('scanner');
+            
+            setTimeout(() => {
+                if (!html5QrcodeScanner) {
+                    // Start cleaner
+                    html5QrcodeScanner = new Html5Qrcode("reader");
+                }
+                
+                const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+                
+                // If scanner is already running, try to stop first or just reuse
+                if (html5QrcodeScanner.isScanning) {
+                     html5QrcodeScanner.stop().then(() => {
+                         startCamera();
+                     }).catch(err => startCamera());
+                } else {
+                    startCamera();
+                }
+
+                function startCamera() {
+                    html5QrcodeScanner.start(
+                        { facingMode: "environment" },
+                        config,
+                        (decodedText) => {
+                            // Success callback
+                            window.closeScanner();
+                            if (scanMode === 'fill' && scanTargetId) {
+                                const el = document.getElementById(scanTargetId);
+                                if(el) {
+                                    el.value = decodedText;
+                                    window.showNotification(`已填入: ${decodedText}`, 'success');
+                                }
+                            } else {
+                                // Default search mode
+                                window.fetchBeetleData(decodedText);
+                            }
+                        },
+                        (errorMessage) => {
+                            // Parsing failure, ignore
+                        }
+                    ).catch(err => {
+                        console.error(err);
+                        window.showNotification("相機啟動失敗，請檢查權限", 'error');
+                        window.closeScanner();
+                    });
+                }
+            }, 100);
+        }
+
+        window.closeScanner = function() {
+            if (html5QrcodeScanner) {
+                try {
+                    if (html5QrcodeScanner.isScanning) {
+                        html5QrcodeScanner.stop().then(() => {
+                            html5QrcodeScanner.clear();
+                            window.switchView('dashboard');
+                        }).catch(err => {
+                            window.switchView('dashboard');
+                        });
+                    } else {
+                        window.switchView('dashboard');
+                    }
+                } catch(e) {
+                    window.switchView('dashboard');
+                }
+            } else {
+                window.switchView('dashboard');
+            }
+        }
+        // -----------------------------------------------------
+
         window.createLineageLink = function(text) { const val = window.cleanData(text); if (!val || val === '--' || val === '') return '--'; if (val.length > 2 && /[A-Z0-9]/.test(val)) { return `<span class="lineage-link" onclick="window.handleLineageClick('${val}')">${val}</span>`; } return val; }
         window.handleLineageClick = async function(id) { window.showNotification(`正在跳轉至親代: ${id}`, 'info'); await window.fetchBeetleData(id); }
 
