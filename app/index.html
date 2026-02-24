@@ -433,6 +433,19 @@
         </div>
     </div>
 
+    <!-- QR Code Modal (已補齊修復) -->
+    <div id="modal-qr" class="hidden fixed inset-0 z-[500] bg-black/90 flex flex-col items-center justify-center p-6 backdrop-blur-sm">
+        <div class="bg-bona-card w-full max-w-xs rounded-2xl p-8 border border-bona-gold/30 shadow-2xl flex flex-col items-center relative">
+            <button onclick="window.closeQRModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white p-2"><i class="fa-solid fa-times text-xl"></i></button>
+            <div class="w-12 h-12 rounded-full border border-bona-gold mb-4 flex items-center justify-center overflow-hidden">
+                <i class="fa-solid fa-fingerprint text-bona-gold text-2xl"></i>
+            </div>
+            <h3 class="text-white font-bold tracking-widest mb-6 uppercase text-sm">個體數位身分條碼</h3>
+            <div id="qrcode" class="bg-white p-4 rounded-xl mb-6"></div>
+            <p id="qr-id-label" class="text-bona-gold font-mono text-2xl font-black tracking-widest"></p>
+        </div>
+    </div>
+
     <script>
         const WEBHOOK_URL = "https://hook.us2.make.com/dft05gnm8d1nnhq1uw9owyy5rbon904w"; 
         
@@ -642,7 +655,6 @@
             }
         }
 
-        // [修正]: 完全改寫 Update 的解析機制，將任何 Make 攔截錯誤如實呈現 (如 HTTP 400 Bad Request)
         window.handleUpdateSubmit = async function(e) {
             e.preventDefault();
             if (document.getElementById('modal-update').classList.contains('hidden')) return;
@@ -696,7 +708,6 @@
                     body: JSON.stringify(payload)
                 }); 
                 
-                // 強制攔截 HTTP 錯誤碼 (e.g. 400 Validation Error) 並拋出
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 
                 const text = await response.text(); 
@@ -715,7 +726,6 @@
                 window.showNotification('更新成功', 'success'); 
                 document.getElementById('d-weight').innerText = weight; 
                 
-                // 視覺上先幫用戶暫時變更為新狀態
                 if (status && status !== 'Keep' && status !== '--') {
                     const statusTag = document.getElementById('d-status-top');
                     if(statusTag) statusTag.innerText = status;
